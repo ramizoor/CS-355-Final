@@ -1,0 +1,25 @@
+<h1>All Recipes</h1>
+
+<nav>
+  {{#if logged_in}}
+    <a href="/logout">Logout</a> |
+    <a href="/users/profile">My Profile</a> |
+    <a href="/recipes/create">Create Recipe</a>
+  {{else}}
+    <a href="/login">Login</a> |
+    <a href="/register">Register</a>
+  {{/if}}
+</nav>
+
+<hr>
+
+<ul>
+  {{#each recipes}}
+    <li>
+      <h3><a href="/recipes/{{id}}">{{title}}</a></h3>
+      <p>{{description}}</p>
+      <p><strong>By:</strong> {{user.name}} | <strong>Category:</strong> {{category.name}}</p>
+    </li>
+    <hr>
+  {{/each}}
+</ul>

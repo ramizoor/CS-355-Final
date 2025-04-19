@@ -1,0 +1,46 @@
+<h2>Create a New Recipe</h2>
+
+<form method="POST" action="/recipes/create">
+  <input type="text" name="title" placeholder="Recipe Title" required><br><br>
+
+  <textarea name="description" placeholder="Short Description" required></textarea><br><br>
+
+  <textarea name="instructions" placeholder="Instructions" required></textarea><br><br>
+
+  <select name="categoryId" required>
+    <option value="">Select Category</option>
+    {{#each categories}}
+      <option value="{{id}}">{{name}}</option>
+    {{/each}}
+  </select><br><br>
+
+  <h4>Ingredients</h4>
+  <div id="ingredients">
+    <div class="ingredient-input">
+      <input type="text" name="ingredients[]" placeholder="Ingredient 1" required>
+      <button type="button" onclick="removeIngredient(this)">❌</button>
+    </div>
+  </div>
+
+  <button type="button" onclick="addIngredient()">Add Ingredient</button><br><br>
+
+  <button type="submit">Create Recipe</button>
+</form>
+
+<script>
+  let count = 2;
+
+  function addIngredient() {
+    const div = document.createElement('div');
+    div.className = 'ingredient-input';
+    div.innerHTML = `
+      <input type="text" name="ingredients[]" placeholder="Ingredient ${count++}" required>
+      <button type="button" onclick="removeIngredient(this)">❌</button>
+    `;
+    document.getElementById('ingredients').appendChild(div);
+  }
+
+  function removeIngredient(btn) {
+    btn.parentElement.remove();
+  }
+</script>

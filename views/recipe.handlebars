@@ -1,0 +1,52 @@
+<h2>{{recipe.title}}</h2>
+<p><strong>By:</strong> {{recipe.user.name}}</p>
+<p><strong>Category:</strong> {{recipe.category.name}}</p>
+
+{{#if logged_in}}
+  <form method="POST" action="/recipes/{{recipe.id}}/favorite" style="display:inline;">
+    <button type="submit">❤️ Favorite</button>
+  </form>
+
+  {{#if (eq recipe.user.id session.userId)}}
+    <form method="GET" action="/recipes/{{recipe.id}}/edit" style="display:inline;">
+      <button type="submit">✏️ Edit</button>
+    </form>
+
+    <form method="POST" action="/recipes/{{recipe.id}}/delete" style="display:inline;" onsubmit="return confirm('Delete this recipe?');">
+      <button type="submit">🗑️ Delete</button>
+    </form>
+  {{/if}}
+{{/if}}
+
+<h3>Description</h3>
+<p>{{{newline recipe.description}}}</p>
+
+<h3>Instructions</h3>
+<p>{{{newline recipe.instructions}}}</p>
+
+<h3>Ingredients</h3>
+<ul>
+  {{#each recipe.ingredients}}
+    <li>{{name}}</li>
+  {{/each}}
+</ul>
+
+<hr>
+
+<h3>Comments</h3>
+<ul>
+  {{#each recipe.comments}}
+    <li><strong>{{user.name}}:</strong> {{content}}</li>
+  {{/each}}
+</ul>
+
+{{#if logged_in}}
+  <form method="POST" action="/recipes/{{recipe.id}}/comments">
+    <textarea name="content" placeholder="Leave a comment..." required></textarea><br>
+    <button type="submit">Comment</button>
+  </form>
+{{else}}
+  <p><a href="/login">Log in</a> to leave a comment</p>
+{{/if}}
+
+<a href="/">← Back to Home</a>
