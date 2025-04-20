@@ -38,19 +38,19 @@ Displays all recipes and includes a search bar
 
 ### Recipe Detail Page  
 Shows title, category, description, ingredients, and comments  
-![Recipe Detail](./screenshots/recipe-detail.png)
+![Recipe Detail](./screenshots/recipe.png)
 
 ### Create Recipe  
 Form with category selector and dynamic ingredient inputs  
-![Create Recipe](./screenshots/create-recipe.png)
+![Create Recipe](./screenshots/create.png)
 
 ### Edit Recipe  
 Same as create, pre-filled with existing data  
-![Edit Recipe](./screenshots/edit-recipe.png)
+![Edit Recipe](./screenshots/edit.png)
 
 ### Profile Page  
 Lists user's own recipes and saved favorites  
-![Profile Page](./screenshots/profile-page.png)
+![Profile Page](./screenshots/profile.png)
 
 ---
 
