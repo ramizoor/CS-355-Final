@@ -1,5 +1,8 @@
 # CS 355 Final Project – Recipe App
 
+## Live App
+[View the live app on Render](https://cs-355-final.onrender.com)
+
 ## GitHub Repository
 [https://github.com/ramizoor/CS-355-Final](https://github.com/ramizoor/CS-355-Final)
 
