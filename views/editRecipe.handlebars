@@ -1,16 +1,25 @@
 <h2>Edit Recipe</h2>
 
+<!-- Edit recipe form -->
 <form method="POST" action="/recipes/{{recipe.id}}/edit">
+  <!-- Title -->
   <input type="text" name="title" value="{{recipe.title}}" required><br><br>
+
+  <!-- Description -->
   <textarea name="description" required>{{recipe.description}}</textarea><br><br>
+
+  <!-- Instructions -->
   <textarea name="instructions" required>{{recipe.instructions}}</textarea><br><br>
 
+  <!-- Category dropdown -->
   <select name="categoryId" required>
     {{#each categories}}
+      <!-- Pre-select current category -->
       <option value="{{id}}" {{#if (eq id ../recipe.categoryId)}}selected{{/if}}>{{name}}</option>
     {{/each}}
   </select><br><br>
 
+  <!-- Ingredients (editable) -->
   <h4>Ingredients</h4>
   <div id="ingredients">
     {{#each recipe.ingredients}}
@@ -21,4 +30,5 @@
   <button type="submit">Save Changes</button>
 </form>
 
+<!-- Back link -->
 <a href="/recipes/{{recipe.id}}">← Back to Recipe</a>

@@ -2,15 +2,26 @@ const express = require('express');
 const router = express.Router();
 const { Recipe, Category, Ingredient, User, Comment, Favorite } = require('../models');
 
-// GET homepage
+const { Op, Sequelize } = require('sequelize'); 
+
+// GET homepage with optional search
 router.get('/', async (req, res) => {
+  const query = req.query.q || ''; 
+
   try {
     const recipes = await Recipe.findAll({
+      where: {
+        title: {
+          [Op.like]: `%${query}%`
+        }
+      },
       include: [Category, User]
     });
+
     res.render('home', {
       recipes: recipes.map(r => r.get({ plain: true })),
-      logged_in: !!req.session.userId
+      logged_in: !!req.session.userId,
+      query // to keep value in search input
     });
   } catch (err) {
     res.status(500).send('Error loading recipes');

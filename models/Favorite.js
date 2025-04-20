@@ -3,6 +3,7 @@ const sequelize = require('../config/database');
 
 class Favorite extends Model {}
 
+// Define fields for Favorite
 Favorite.init({
   id: {
     type: DataTypes.INTEGER,

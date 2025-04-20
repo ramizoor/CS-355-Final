@@ -1,12 +1,17 @@
 <h2>Create a New Recipe</h2>
 
+<!-- Recipe creation form -->
 <form method="POST" action="/recipes/create">
+  <!-- Title input -->
   <input type="text" name="title" placeholder="Recipe Title" required><br><br>
 
+  <!-- Description input -->
   <textarea name="description" placeholder="Short Description" required></textarea><br><br>
 
+  <!-- Instructions input -->
   <textarea name="instructions" placeholder="Instructions" required></textarea><br><br>
 
+  <!-- Category dropdown -->
   <select name="categoryId" required>
     <option value="">Select Category</option>
     {{#each categories}}
@@ -14,19 +19,24 @@
     {{/each}}
   </select><br><br>
 
+  <!-- Ingredients section -->
   <h4>Ingredients</h4>
   <div id="ingredients">
+    <!-- First ingredient input with remove button -->
     <div class="ingredient-input">
       <input type="text" name="ingredients[]" placeholder="Ingredient 1" required>
       <button type="button" onclick="removeIngredient(this)">❌</button>
     </div>
   </div>
 
+  <!-- Add ingredients dynamically -->
   <button type="button" onclick="addIngredient()">Add Ingredient</button><br><br>
 
+  <!-- Submit form -->
   <button type="submit">Create Recipe</button>
 </form>
 
+<!-- JS to add/remove ingredients -->
 <script>
   let count = 2;
 

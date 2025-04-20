@@ -2,11 +2,13 @@
 <p><strong>By:</strong> {{recipe.user.name}}</p>
 <p><strong>Category:</strong> {{recipe.category.name}}</p>
 
+<!-- Show favorite, edit, and delete buttons if user is logged in -->
 {{#if logged_in}}
   <form method="POST" action="/recipes/{{recipe.id}}/favorite" style="display:inline;">
     <button type="submit">❤️ Favorite</button>
   </form>
 
+  <!-- Only show edit/delete if the logged-in user owns the recipe -->
   {{#if (eq recipe.user.id session.userId)}}
     <form method="GET" action="/recipes/{{recipe.id}}/edit" style="display:inline;">
       <button type="submit">✏️ Edit</button>
@@ -19,9 +21,11 @@
 {{/if}}
 
 <h3>Description</h3>
+<!-- Preserve line breaks -->
 <p>{{{newline recipe.description}}}</p>
 
 <h3>Instructions</h3>
+<!-- Preserve line breaks -->
 <p>{{{newline recipe.instructions}}}</p>
 
 <h3>Ingredients</h3>
@@ -40,6 +44,7 @@
   {{/each}}
 </ul>
 
+<!-- Show comment form if logged in -->
 {{#if logged_in}}
   <form method="POST" action="/recipes/{{recipe.id}}/comments">
     <textarea name="content" placeholder="Leave a comment..." required></textarea><br>

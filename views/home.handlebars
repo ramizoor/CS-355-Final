@@ -11,6 +11,12 @@
   {{/if}}
 </nav>
 
+<!-- Search bar -->
+<form method="GET" action="/recipes" style="margin: 20px 0;">
+  <input type="text" name="q" placeholder="Search recipes..." value="{{query}}" style="padding: 5px; width: 250px;">
+  <button type="submit">Search</button>
+</form>
+
 <hr>
 
 <ul>

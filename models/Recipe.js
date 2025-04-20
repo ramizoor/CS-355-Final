@@ -3,6 +3,7 @@ const sequelize = require('../config/database');
 
 class Recipe extends Model {}
 
+// Define fields for Recipe
 Recipe.init({
   id: {
     type: DataTypes.INTEGER,

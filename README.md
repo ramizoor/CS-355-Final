@@ -1,34 +1,59 @@
 # CS 355 Final Project – Recipe App
 
 ## GitHub Repository
-https://github.com/ramizoor/CS-355-Final
+[https://github.com/ramizoor/CS-355-Final](https://github.com/ramizoor/CS-355-Final)
 
 ## Project Overview
-This full-stack recipe application allows users to register, log in, and create, view, update, and delete recipes. It uses:
+This is a full-stack web application that allows users to register, log in, and manage personal recipes. Users can create, view, edit, delete, favorite, and comment on recipes.
 
-- Node.js + Express for the backend
-- Handlebars for templating
-- Sequelize with SQLite for the database
-- Express-session for authentication
-- Render for deployment
+### Technologies Used
+- **Node.js** + **Express** for the backend
+- **Handlebars** for dynamic page rendering
+- **Sequelize** with **SQLite** for the database
+- **Express-session** for user authentication
+- **CSS** for custom styling
+- **Deployed via Render** (coming soon)
 
-## Features Completed
-- User authentication (register, login, logout)
-- Session-based login with protected routes
-- Recipe creation with title, description, instructions, category, and ingredients
-- Full CRUD: Users can edit or delete only their own recipes
-- Favorites and commenting system
-- User profile page displaying personal recipes and saved favorites
-- Flash messages and polished styling
-- Mobile-friendly layout
-- Dynamic form for adding/removing ingredients
-- Line-break preservation in instructions/descriptions
+---
 
-## Remaining Work
-- Final code cleanup and additional notes needed
-- Deployment to Render
-- Small UI polish adjustments (spacing, possible addition of search bar)
-- README enhancements and screenshots
+## Features
+- User registration, login, logout
+- Session-based authentication with protected routes
+- Create, read, update, and delete recipes
+- Assign categories and ingredients to recipes
+- Favorite and comment on other users' recipes
+- Personalized user profile page
+- Dynamic ingredient input fields
+- Search functionality for recipes
+- Mobile-friendly and visually polished UI
+- Proper line-break formatting in instructions and descriptions
 
-## MVP Status
-I'm practically finished — the core functionality is all working. I just need to do some final cleanup and optional polish before turning it in.
+---
+
+## Screenshots
+
+### Homepage  
+Displays all recipes and includes a search bar  
+![Homepage](./screenshots/home.png)
+
+### Recipe Detail Page  
+Shows title, category, description, ingredients, and comments  
+![Recipe Detail](./screenshots/recipe-detail.png)
+
+### Create Recipe  
+Form with category selector and dynamic ingredient inputs  
+![Create Recipe](./screenshots/create-recipe.png)
+
+### Edit Recipe  
+Same as create, pre-filled with existing data  
+![Edit Recipe](./screenshots/edit-recipe.png)
+
+### Profile Page  
+Lists user's own recipes and saved favorites  
+![Profile Page](./screenshots/profile-page.png)
+
+---
+
+## Final Notes
+All functionality for the MVP has been completed. The project is tested, styled, and fully operational. It is ready for final deployment and grading.
+
